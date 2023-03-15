@@ -9,23 +9,10 @@ var usersRouter = require("./routes/users");
 
 var app = express();
 
-app.use(
-  express.static(
-    path.join(
-      "C:\\Users\\NamVan\\Documents\\SJSU\\S'23\\CS160-Software_Engr\\CS160-T5-ODFDS\\Client\\odfds",
-      "build"
-    )
-  )
-);
+app.use(express.static(path.join(__dirname, "build")));
 
 app.get("/*", (req, res) => {
-  res.sendFile(
-    path.join(
-      "C:\\Users\\NamVan\\Documents\\SJSU\\S'23\\CS160-Software_Engr\\CS160-T5-ODFDS\\Client\\odfds",
-      "build",
-      "index.html"
-    )
-  );
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 // view engine setup
